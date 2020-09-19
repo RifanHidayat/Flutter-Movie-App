@@ -3,7 +3,6 @@ import 'package:movie/ui/HomeMovieScreen.dart';
 import 'package:movie/ui/KategoriMovieScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class TapBarMenu extends StatefulWidget {
   @override
   _TapBarMenuState createState() => _TapBarMenuState();
@@ -11,7 +10,6 @@ class TapBarMenu extends StatefulWidget {
 
 class _TapBarMenuState extends State<TapBarMenu>
     with SingleTickerProviderStateMixin {
-
   //create controller untuk tabBar
   TabController controller;
   String username;
@@ -38,21 +36,43 @@ class _TapBarMenuState extends State<TapBarMenu>
         //warna background
         backgroundColor: Colors.black26,
         //judul
-        title: new Text("Movie App ", style: TextStyle(color: Colors.white),),
+        title: new Text(
+          "Movie App ",
+          style: TextStyle(color: Colors.white),
+        ),
         //bottom
         bottom: new TabBar(
           controller: controller,
           //source code lanjutan
           tabs: <Widget>[
-            new Tab(icon: new Icon(Icons.videocam, color: Colors.white,),
-              text: "All",),
-            new Tab(icon: new Icon(Icons.videocam, color: Colors.white,),
-              text: "Comedy",),
-
-            new Tab(icon: new Icon(Icons.videocam, color: Colors.white,),
-              text: "Action",),
-            new Tab(icon: new Icon(Icons.star, color: Colors.white,),
-              text: "Favorites",),
+            new Tab(
+              icon: new Icon(
+                Icons.videocam,
+                color: Colors.white,
+              ),
+              text: "All",
+            ),
+            new Tab(
+              icon: new Icon(
+                Icons.videocam,
+                color: Colors.white,
+              ),
+              text: "Comedy",
+            ),
+            new Tab(
+              icon: new Icon(
+                Icons.videocam,
+                color: Colors.white,
+              ),
+              text: "Action",
+            ),
+            new Tab(
+              icon: new Icon(
+                Icons.star,
+                color: Colors.white,
+              ),
+              text: "Favorites",
+            ),
           ],
         ),
       ),
@@ -62,22 +82,30 @@ class _TapBarMenuState extends State<TapBarMenu>
 //          new rifan.ScreenRifan(),
 //          new udacoding.ScreenUdacoding()
           HomeScreen1(),
-          KategoriScreen(kategori: "Comedy",action: "kategori_movie",),
-          KategoriScreen(kategori: "Action",action: "kategori_movie",),
-          KategoriScreen(kategori: "RifanHidayat",action: "kategori_favorites",),
-
+          KategoriScreen(
+            kategori: "Comedy",
+            action: "kategori_movie",
+          ),
+          KategoriScreen(
+            kategori: "Action",
+            action: "kategori_movie",
+          ),
+          KategoriScreen(
+            kategori: "RifanHidayat",
+            action: "kategori_favorites",
+          ),
         ],
       ),
     );
   }
+
   getDataPref() async {
     setState(() async {
       SharedPreferences sharedPreferences =
-      await SharedPreferences.getInstance();
+          await SharedPreferences.getInstance();
       setState(() {
         username = sharedPreferences.getString("username");
       });
     });
   }
-
 }

@@ -81,13 +81,10 @@ Future kirim_favorite(BuildContext context, String username, String id_movie,
 }
 
 var favor;
-favorite(BuildContext context,String username,String id_movie) async {
 
-  final responseData = await http.post(
-      "$base_url/RestFullAPi/cek_favorite", body: {
-    "username": username,
-    "id_movie": id_movie
-  });
+favorite(BuildContext context, String username, String id_movie) async {
+  final responseData = await http.post("$base_url/RestFullAPi/cek_favorite",
+      body: {"username": username, "id_movie": id_movie});
 
   final data = jsonDecode(responseData.body);
 
@@ -98,14 +95,13 @@ favorite(BuildContext context,String username,String id_movie) async {
     favor = "1";
     color = Colors.yellow;
     return favor;
-  } else if (favorite=="0") {
+  } else if (favorite == "0") {
     favor = "0";
     color = Colors.black45;
     return favor;
-  }else if (favorite=="2"){
+  } else if (favorite == "2") {
     favor = "0";
     color = Colors.black45;
     return favor;
   }
 }
-

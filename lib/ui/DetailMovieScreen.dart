@@ -167,12 +167,10 @@ class PartJudul extends StatelessWidget {
                 favorite(context, username, id_movie);
                 (context as Element).reassemble();
               } else {
-
                 kirim_favorite(context, username, id_movie, "0");
                 favorite(context, username, id_movie);
                 (context as Element).reassemble();
               }
-
             },
             child: new Row(
               children: <Widget>[

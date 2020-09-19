@@ -10,12 +10,9 @@ import 'package:movie/ui/DetailMovieScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class KategoriScreen extends StatefulWidget {
-  KategoriScreen({
-    this.kategori,
-    this.action
-  });
+  KategoriScreen({this.kategori, this.action});
 
-  final String kategori,action;
+  final String kategori, action;
 
   @override
   _KategoriScreenState createState() => _KategoriScreenState();
