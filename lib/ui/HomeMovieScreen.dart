@@ -90,13 +90,13 @@ class _HomeScreen1State extends State<HomeScreen1> {
   }
 
   getDataPref() async {
-    setState(() async {
+
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       setState(() {
         username = sharedPreferences.getString("username");
       });
-    });
+
   }
 
   Future getData() async {
@@ -119,7 +119,6 @@ class _HomeScreen1State extends State<HomeScreen1> {
   @override
   void initState() {
     getData();
-
     getDataPref();
     // TODO: implement initState
     super.initState();

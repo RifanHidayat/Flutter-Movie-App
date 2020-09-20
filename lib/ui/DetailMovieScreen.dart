@@ -105,11 +105,23 @@ class _DetailMovieScreenState extends State<DetailMovieScreen> {
     setState(() {
       favorite(context, widget.username, widget.id);
     });
+    if (favor=="1"){
+      setState(() {
+        color=Colors.yellow;
+      });
+
+    }else{
+      setState(() {
+        color=Colors.black45;
+      });
+
+    }
     super.initState();
   }
 }
 
 class PartJudul extends StatelessWidget {
+
   PartJudul(
       {this.judul,
       this.genre,
@@ -162,14 +174,18 @@ class PartJudul extends StatelessWidget {
           ),
           new InkWell(
             onTap: () {
+
               if (favor == "0") {
                 kirim_favorite(context, username, id_movie, "1");
-                favorite(context, username, id_movie);
+                favor="1";
                 (context as Element).reassemble();
+                color=Colors.yellow;
+
               } else {
                 kirim_favorite(context, username, id_movie, "0");
-                favorite(context, username, id_movie);
+                favor="0";
                 (context as Element).reassemble();
+                color=Colors.black45;
               }
             },
             child: new Row(

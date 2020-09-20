@@ -91,7 +91,7 @@ class _TapBarMenuState extends State<TapBarMenu>
             action: "kategori_movie",
           ),
           KategoriScreen(
-            kategori: "RifanHidayat",
+            kategori: "$username",
             action: "kategori_favorites",
           ),
         ],

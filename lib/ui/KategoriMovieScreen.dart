@@ -95,13 +95,13 @@ class _KategoriScreenState extends State<KategoriScreen> {
   }
 
   getDataPref() async {
-    setState(() async {
+
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       setState(() {
         username = sharedPreferences.getString("username");
       });
-    });
+
   }
 
 //get movies
@@ -111,7 +111,7 @@ class _KategoriScreenState extends State<KategoriScreen> {
   Map datadetail;
   dynamic producDataDetail;
 
-  Future getData() async {
+  getData() async {
     setState(() {
       loading = true;
     });

@@ -43,20 +43,21 @@ void login(BuildContext context, String username, String password) async {
   String pesan = data['message'];
 
 // get data respon
-  String dtusername = data['detail']['username'];
-  String dtfirst_name = data['detail']['firts_name'];
-  String dtlast_name = data['detail']['last_name'];
-  String dtemail = data['detail']['email'];
-  String dttelp = data['detail']['telp'];
+
 
 // cek value 1 atau 0
   if (value == 1) {
     Toast.show("$pesan", context, duration: 5, gravity: Toast.BOTTOM);
+    String dtusername = data['detail']['username'];
+    String dtfirst_name = data['detail']['firts_name'];
+    String dtlast_name = data['detail']['last_name'];
+    String dtemail = data['detail']['email'];
+    String dttelp = data['detail']['telp'];
     saveData(value, dtusername, dtfirst_name, dtlast_name, dtemail, dttelp);
-    Navigator.pop(context);
+
   } else if (value == 0) {
     Toast.show("$pesan", context, duration: 5, gravity: Toast.BOTTOM);
-    Navigator.pop(context);
+
   }
 }
 
@@ -81,7 +82,6 @@ Future kirim_favorite(BuildContext context, String username, String id_movie,
 }
 
 var favor;
-
 favorite(BuildContext context, String username, String id_movie) async {
   final responseData = await http.post("$base_url/RestFullAPi/cek_favorite",
       body: {"username": username, "id_movie": id_movie});

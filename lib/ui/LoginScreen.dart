@@ -214,43 +214,25 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  void proses_login() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-              content: Container(
-            height: 100,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Text("Loading...."),
-                SizedBox(
-                  height: 30,
-                ),
-                CircularProgressIndicator(
-                  backgroundColor: Colors.blue[250],
-                ),
-              ],
-            ),
-          ));
-        });
-  }
+
 
   getDataPref() async {
-    setState(() async {
+
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       setState(() {
         int nvalue = sharedPreferences.getInt("value");
         _loginStatus = nvalue == 1 ? statusLogin.signIn : statusLogin.notSignIn;
       });
-    });
+
   }
 
   @override
   void initState() {
     super.initState();
-    getDataPref();
+    setState(() {
+      getDataPref();
+    });
+
   }
 }
