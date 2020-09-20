@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:movie/Shared_preference/Session.dart';
 import 'package:movie/dataabse/APIClient.dart';
+import 'package:movie/ui/TapBarMenu.dart';
 import 'package:toast/toast.dart';
 
 Future<void> register(BuildContext context, String username, String firts_name,
@@ -53,7 +54,13 @@ void login(BuildContext context, String username, String password) async {
     String dtlast_name = data['detail']['last_name'];
     String dtemail = data['detail']['email'];
     String dttelp = data['detail']['telp'];
+
     saveData(value, dtusername, dtfirst_name, dtlast_name, dtemail, dttelp);
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (BuildContext context) => TapBarMenu()),
+      ModalRoute.withName('/LoginScreen'),
+    );
 
   } else if (value == 0) {
     Toast.show("$pesan", context, duration: 5, gravity: Toast.BOTTOM);

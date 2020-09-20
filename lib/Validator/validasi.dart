@@ -6,19 +6,19 @@ import 'package:toast/toast.dart';
 void validasi_register(BuildContext context, String username, String firtsName,
     String last_name, String email, String telp, String password) {
   if (username.isEmpty) {
-    Toast.show("Username tidak belum diisi", context,
+    Toast.show("Username belum diisi", context,
         duration: 5, gravity: Toast.BOTTOM);
   } else if (username.contains(" ")) {
     Toast.show("Username tidak boleh mengandung spasi", context,
         duration: 5, gravity: Toast.BOTTOM);
   } else if (firtsName.isEmpty) {
-    Toast.show("first name tidak bole kosong", context,
+    Toast.show("first name tidak boleh kosong", context,
         duration: 5, gravity: Toast.BOTTOM);
   } else if (last_name.isEmpty) {
-    Toast.show("last name tidak bole kosong", context,
+    Toast.show("last name tidak boleh kosong", context,
         duration: 5, gravity: Toast.BOTTOM);
   } else if (!email.contains("@")) {
-    Toast.show("Email tidak vali", context, duration: 5, gravity: Toast.BOTTOM);
+    Toast.show("Email tidak valid", context, duration: 5, gravity: Toast.BOTTOM);
   } else if (telp.isEmpty) {
     Toast.show("No telp harus diisi", context,
         duration: 5, gravity: Toast.BOTTOM);
@@ -36,10 +36,10 @@ void validasi_register(BuildContext context, String username, String firtsName,
 
 void validasi_login(BuildContext context, String username, String password) {
   if (username.isEmpty) {
-    Toast.show("Usernamt tidak belum diisi", context,
+    Toast.show("Username belum diisi", context,
         duration: 5, gravity: Toast.BOTTOM);
   } else if (password.isEmpty) {
-    Toast.show("Username tidak belum diisi", context,
+    Toast.show("Username belum diisi", context,
         duration: 5, gravity: Toast.BOTTOM);
   } else {
     login(context, username, password);
